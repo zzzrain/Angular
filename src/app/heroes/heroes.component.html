@@ -1,2 +1,14 @@
-<h1>Here is HeroesCompontent and my idol is {{ hero.name | uppercase }}.</h1>
-<input type="text" [(ngModel)]="hero.name" placeholder="请输入名字">
+<div>
+    <app-heroes-detail [detail]="selectedHero"></app-heroes-detail>
+    <!-- <div *ngIf="selectedHero">
+        <h2>Here is HeroesCompontent and my idol is {{ selectedHero.name | uppercase }}.</h2>
+        <input type="text" [(ngModel)]="selectedHero.name" placeholder="请输入名字">
+    </div>  -->
+    <ul class="heroes">
+        <li *ngFor="let item of Heroes" 
+        [class.active]="item === selectedHero"
+        (click)="onSelect(item)">
+            <span class="badge">{{ item.id }}</span> {{ item.name }}
+        </li>
+    </ul>
+</div>
